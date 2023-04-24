@@ -33,7 +33,7 @@ app.get('/', function(req, res) {
 })
 app.get('/dash', function(req, res) {
     const array = data
-    res.render("Dashboard", { array })
+    res.render("dashboard", { array })
 })
 app.get('/public', function(req, res) {
     const array = data
@@ -77,7 +77,7 @@ app.post('/', function(req, res) {
     if (username == "919616886" && pass == "1234") {
         const array = data
         console.log(array);
-        res.render("Dashboard", { array })
+        res.render("dashboard", { array })
     } else {
         res.render("index")
     }
