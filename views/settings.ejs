@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <%- include('./Components/links') %>
+</head>
+<style>
+    .container>div {
+        width: 800px;
+    }
+</style>
+
+<body>
+    <%- include('./Components/navbar') %>
+        <div class="container" style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+            <h3>Notifications</h3>
+            <div class="row" style="display: flex;flex-direction: row;justify-content: start;">
+                <div>
+                    <h4 for="">Create Event:</h4>
+
+                </div>
+                <div>
+                    <textarea value='' name="" id="" cols="120" rows="10">Dear Students,
+We are thrilled to invite you to our upcoming  event at Northwest Missouri State University. 
+This event is exclusively for our college community and promises to be an exciting opportunity to connect, socialize, and have fun with your peers.
+
+The event will take place on 04/16/2023 at 7PM at Hughes Fieldhouse. It will be a great chance to unwind and have a good time outside of the classroom.
+We look forward to seeing you at the event and having a memorable time together.
+
+Best regards,
+Event Organizer.
+                    </textarea>
+                    <br>
+                    <button>Edit</button>
+                    <button>Save</button>
+                    <button>Cancel</button>
+                </div>
+
+            </div>
+            <div class="row" style="display: flex;flex-direction: row;justify-content: start;">
+                <div>
+                    <h4 for="">Edit Event:</h4>
+
+                </div>
+                <div>
+                    <textarea name="" id="" cols="120" rows="10">Dear Students,
+We are delighted to invite you to our upcoming private event at Northwest Missouri State University. As our valued guest, 
+we want to ensure that you have all the latest information about the event.The event will take place on 04/14/2023 at 10AM in Hughes Fieldhouse to 05/20/2023 at 10AM. 
+We have updated the program to include exciting activities and entertainment that we are sure you will enjoy. 
+To ensure your safety and well-being, we have implemented several precautionary measures, including.
+We look forward to having you join us at this special event. 
+Thank you for your continued support, and we look forward to seeing you soon!
+
+Sincerely,
+Event Organizer.
+                    </textarea>
+                    <br>
+                    <button>Edit</button>
+                    <button>Save</button>
+                    <button>Cancel</button>
+                </div>
+
+            </div>
+            <div class="row" style="display: flex;flex-direction: row;">
+                <div>
+                    <h4 for="">Cancel Event:</h4>
+
+                </div>
+                <div>
+                    <textarea name="" id="" cols="120" rows="10">Dear Students,
+I hope this message finds you well. I am writing to inform you that the private event we had planned for 04/18/2023 at Hughes Fieldhouse 
+has been canceled due to unforeseen circumstances.
+We apologize for any inconvenience this may have caused and we hope to reschedule the event for a later date. 
+We value your participation and support for our college community and we would like to extend our gratitude for your interest in attending the event.
+We will keep you updated on any future events and activities. Thank you for your understanding.
+
+Best regards,
+Event Organizer.
+                    </textarea>
+                    <br>
+                    <button>Edit</button>
+                    <button>Save</button>
+                    <button>Cancel</button>
+                </div>
+
+            </div>
+
+        </div>
+</body>
+
+</html>

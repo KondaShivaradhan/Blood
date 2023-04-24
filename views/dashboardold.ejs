@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../../public/Css/admin.css">
+    <!-- CalenderJS CDN -->
+    <!-- Add the evo-calendar.css for styling -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/evo-calendar@1.1.3/evo-calendar/js/evo-calendar.min.js
+"></script>
+    <link href="
+https://cdn.jsdelivr.net/npm/evo-calendar@1.1.3/evo-calendar/css/evo-calendar.min.css
+" rel="stylesheet">
+    <!-- Add the evo-calendar.css for styling -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css" />
+    <!-- Bootstrap CDN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>
+        $(document).ready(function() {
+            $("#calendar").evoCalendar({
+                calendarEvents: [{
+                        id: 'bHay68s', // (required)
+                        name: "New Year", //  (required)
+                        date: "January/1/2020", //(required)
+                        type: "holiday", // (required)
+                        everyYear: true,
+                    }, {
+                        id: '09nk7Ts',
+                        name: "My Birthday",
+                        date: "February/15/2020",
+                        type: "birthday",
+                        everyYear: true
+                    }, {
+                        id: '09n57Ts',
+                        name: "Vacation Leave",
+                        badge: "02/13 - 02/15", // Event badge (optional)
+                        date: ["February/13/2020", "February/15/2020"], // Date range
+                        description: "Vacation leave for 3 days.", // Event description (optional)
+                        type: "event",
+                        color: "#63d867" // Event custom color (optional)
+                    }]
+                    //                 {
+
+                // "name": "lecture",
+                // "type": "private",
+                // "capacity": "30",
+                // "location": "CH",
+                // "stime": "12:20",
+                // "etime": "12:20",
+                // "date": "30 Jan 2023"
+                // },
+            });
+        })
+        var array = '<%- JSON.stringify(array)%>'
+        var data = JSON.parse(array)
+        var today = new Date()
+        var test = new Date("2023-03-31")
+        console.log(test);
+        var upcoming = []
+        var past = []
+        var todayL = []
+
+        data.forEach(event => {
+            com = new Date(event.date)
+            if ((today.getDate() == com.getDate()) && (today.getMonth() == com.getMonth()) && (today.getFullYear == com.getFullYear)) {
+                todayL.push(event)
+            } else if (today < com) {
+                upcoming.push(event)
+
+            } else {
+                past.push(event)
+            }
+
+        });
+
+        function load() {
+            up = document.getElementById('upcoming')
+            output = ""
+            upcoming.forEach(element => {
+                output += ` <div id="event">
+                            <p>name: ${element.name}</p>
+                            <p>location: ${element.location}</p>
+                            <p>date: ${element.date}</p>
+                        </div>`
+            });
+            up.innerHTML = output
+            p = document.getElementById('past')
+            output = ""
+            past.forEach(element => {
+                output += ` <div id="event">
+                            <p>name: ${element.name}</p>
+                            <p>location: ${element.location}</p>
+                            <p>date: ${element.date}</p>
+                        </div>`
+            });
+            p.innerHTML = output
+            t = document.getElementById('today')
+            output = ""
+            todayL.forEach(element => {
+                output += ` <div id="event">
+                            <p>name: ${element.name}</p>
+                            <p>location: ${element.location}</p>
+                            <p>date: ${element.date}</p>
+                        </div>`
+            });
+            t.innerHTML = output
+        }
+    </script>
+</head>
+<style>
+    #event {
+        margin: 10px;
+        background-color: aqua;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<!-- Add the evo-calendar.js for.. obviously, functionality! -->
+<script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
+
+<body onload="load()">
+
+    <%- include('./Components/navbar') %>
+        <ul>
+            <li><button>Public</button></li>
+            <li><button>Private</button></li>
+            <!-- <li><button>Calender</button></li> -->
+        </ul>
+        <div id="calendar"></div>
+        <!-- tiles -->
+        <div>
+            <div>Total events 2023</div>
+            <div>
+                Total Events in April
+            </div>
+            <div>
+                upcoming Pulic events in April
+            </div>
+        </div>
+        <!-- report -->
+        <div>
+            <select name="Depart" id="">
+                <option value="">IS</option>
+                <option value="">ACS</option>
+            </select>
+            <select name="Event" id="">
+                <option value="">Capstone</option>
+                <option value="">EN</option>
+                <option value="">BI</option>
+            </select>
+            <select name="SelectYear" id="">
+                <option value="">2022</option>
+                <option value="">2023</option>
+                <option value="">2024</option>
+            </select>
+            <select name="SelectMonth" id="">
+                <option value="">Feb</option>
+                <option value="">March</option>
+                <option value="">April</option>
+            </select>
+            <button>Search</button>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <table>
+                    <thead>
+                        Upcoming Events (Next 7 days)
+                    </thead>
+                    <tr>
+                        <td>Event</td>
+                        <td>Time</td>
+                        <td>Date</td>
+                        <td>Capacity</td>
+                    </tr>
+                    <tr>
+                        <td>Mile Stone Capstone1</td>
+                        <td>7-9pm</td>
+                        <td>March 31</td>
+                        <td>Capacity</td>
+                    </tr>
+                    <tr>
+                        <td>Mile Stone Capstone1</td>
+                        <td>7-9pm</td>
+                        <td>March 31</td>
+                        <td>Capacity</td>
+                    </tr>
+                    <tr>
+                        <td>Mile Stone Capstone1</td>
+                        <td>7-9pm</td>
+                        <td>March 31</td>
+                        <td>Capacity</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    Completed Events in March
+                    <p>45 Events</p>
+                </div>
+                <div>
+                    Completed Events in March
+                    <p>45 Events</p>
+                </div>
+                <div>
+                    Completed Events in March
+                    <p>45 Events</p>
+                </div>
+            </div>
+        </div>
+        <!-- Graph -->
+        <div>
+            <h4>Event Stati for match month</h4>
+            <select name="SelectYear" id="">
+            <option value="">2022</option>
+            <option value="">2023</option>
+            <option value="">2024</option>
+                </select>
+            <select name="SelectMonth" id="">
+            <option value="">Feb</option>
+            <option value="">March</option>
+            <option value="">April</option>
+                </select>
+            <div>
+                event name
+            </div>
+            <div>report</div>
+
+            <div>
+                Capstone
+            </div>
+            <div>
+                progress bar
+
+            </div>
+        </div>
+        <!-- <div class="container-fluid">
+            <div class="row">
+                <h3>Today</h3>
+                <div id="today">
+                    <div>
+                        <p>name:</p>
+                        <p>location:</p>
+                        <p>date:</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Upcoming</h3>
+                    <div id="upcoming">
+                        <div>
+                            <p>name:</p>
+                            <p>location:</p>
+                            <p>date:</p>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3>Past</h3>
+                    <div id="past">
+                        <div>
+                            <p>name:</p>
+                            <p>location:</p>
+                            <p>date:</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+</body>
+
+</html>

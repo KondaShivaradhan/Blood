@@ -1,0 +1,116 @@
+#tiles {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+
+#tiles>div {
+    padding: 20px;
+    background-color: rgb(42, 92, 37);
+    color: white;
+}
+
+#reportBar {
+    display: flex;
+    width: 100%;
+    background-color: rgb(42, 92, 37);
+    flex-direction: row;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+#some {
+    text-align: center;
+    font-weight: bolder;
+}
+
+table {
+    border: solid black 1px;
+    margin: 0 auto;
+}
+
+td,
+th {
+    margin: 10px;
+    padding: 20px;
+    border-right: 1px solid black;
+}
+
+#cards {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+#cards>div {
+    margin: 10px;
+    padding: 10px;
+    flex: 1;
+    background-color: rgb(39, 92, 43);
+    color: white;
+}
+
+#Gbar {
+    display: flex;
+    width: 100%;
+    background-color: rgb(42, 92, 37);
+    flex-direction: row;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+
+/* report */
+
+#report {
+    width: 100%;
+}
+
+#Pbar {
+    width: 80%;
+}
+
+#totalB {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: red;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+}
+
+#pbar {
+    width: 20%;
+    background-color: rgb(43, 83, 31);
+}
+
+th {
+    text-align: center;
+}
+
+#abar {
+    width: 80%;
+    background-color: rgb(197, 123, 11);
+}
+
+#Cicon>i {
+    font-size: 50px;
+    padding: 10px;
+    float: right;
+}
+
+p {
+    font-weight: bold;
+    font-size: larger;
+}
+
+#mar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}

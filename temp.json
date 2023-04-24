@@ -1,0 +1,51 @@
+[{
+
+        "name": "lecture",
+        "type": "private",
+        "capacity": "30",
+        "location": "CH",
+        "stime": "12:20",
+        "etime": "12:20",
+        "date": "30 Jan 2023"
+    },
+    {
+
+        "name": "workshop",
+        "type": "public",
+        "capacity": "100",
+        "location": "Valk",
+        "stime": "12:20",
+        "etime": "12:20",
+        "date": "30 April 2023"
+    },
+    {
+
+        "name": "help session",
+        "type": "private",
+        "capacity": "40",
+        "location": "Mozingo",
+        "stime": "12:20",
+        "etime": "12:20",
+        "date": "30 March 2023"
+    },
+    {
+        "name": "Cricket League",
+        "type": "public",
+        "capacity": "200",
+        "location": "hughes",
+        "stime": "12:20",
+        "etime": "12:20",
+        "date": "17 June 2023"
+
+    },
+    {
+        "name": "Library Introduction",
+        "location": "Library",
+        "type": "public",
+        "date": "2023-03-31",
+        "stime": "05:30",
+        "etime": "04:30",
+        "Recurring": "Monday",
+        "capacity": "200"
+    }
+]
