@@ -280,13 +280,17 @@
                                     <a href="/update/<%= index %>">
                                         <button>Edit</button>
                                     </a>
-                                    <% } %>
+                                    <form action="/delete/<%= index %>" method="post">
+                                        <input type="submit" onclick="conf()" value="Delete">
+                                    </form>
+                                    <% } else {%>
                                         <form action="/delete/<%= index %>" method="post">
                                             <input type="submit" onclick="conf()" value="Delete">
                                         </form>
                                         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">
                                    Attendance
                                   </button>
+                                        <% } %>
                             </div>
                         </div>
                         <% }) %>

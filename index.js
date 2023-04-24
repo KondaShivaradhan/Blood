@@ -14,6 +14,7 @@ const axios = require('axios')
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
+app.set('views', './views');
 app.use("/public", express.static(path.join(__dirname, "/public")));
 app.get('/', function(req, res) {
     // const uri = "mongodb://127.0.0.1:27017/";
@@ -74,11 +75,9 @@ app.post('/', function(req, res) {
     var username = req.body.username
     var pass = req.body.pass
     if (username == "919616886" && pass == "1234") {
-
         const array = data
         console.log(array);
         res.render("Dashboard", { array })
-
     } else {
         res.render("index")
     }
