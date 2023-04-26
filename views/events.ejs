@@ -204,10 +204,11 @@
         <div class="container">
             <div id="reportBar">
                 <select name="Depart" id="">
-                <option value="">IS</option>
-                <option value="">ACS</option>
+                <option value="">Public</option>
+                <option value="">Private</option>
             </select>
                 <select name="Event" id="">
+                 <option value="">All</option>
                 <option value="">Capstone</option>
                 <option value="">EN</option>
                 <option value="">BI</option>
@@ -217,14 +218,14 @@
                 <label for="">to Date</label>
                 <input type="date" name="" id="">
                 <select name="SelectYear" id="">
-                <option value="">2022</option>
                 <option value="">2023</option>
-                <option value="">2024</option>
+                <option value="">2022</option>
+                
             </select>
                 <select name="SelectMonth" id="">
-                <option value="">Feb</option>
-                <option value="">March</option>
                 <option value="">April</option>
+                <option value="">March</option>
+                <option value="">Feb</option>
             </select>
                 <button id="reportB">Search</button>
             </div>
@@ -284,9 +285,7 @@
                                         <input type="submit" onclick="conf()" value="Delete">
                                     </form>
                                     <% } else {%>
-                                        <form action="/delete/<%= index %>" method="post">
-                                            <input type="submit" onclick="conf()" value="Delete">
-                                        </form>
+
                                         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">
                                    Attendance
                                   </button>

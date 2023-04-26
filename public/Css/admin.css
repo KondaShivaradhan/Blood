@@ -68,3 +68,10 @@
     color: red;
     transition: all 0.3s;
 }
+
+#logout {}
+
+#logout:hover {
+    color: white !important;
+    transform: scale(1.1);
+}

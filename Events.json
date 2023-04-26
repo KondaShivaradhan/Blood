@@ -1,5 +1,53 @@
-[{ "name": "Basketball Tournament", "location": "Bearcat Stadium", "type": "public", "ESdate": "2023-04-15", "EEdate": "2023-04-15", "EStime": "07:00 AM", "EEtime": "09:00 AM", "rec": ["Saturday"], "capacity": "23" },
-    { "name": "Volleyball Tournament", "location": "Recreation Stadium", "type": "public", "ESdate": "2023-04-22", "EEdate": "2023-04-22", "EStime": "12:00 PM", "EEtime": "15:00 PM", "rec": ["Thursday", "Wednesday", "Saturday"], "capacity": "345" },
-    { "name": "iOS Help Session", "location": "CH 3500 ", "type": "private", "ESdate": "2023-04-20", "EEdate": "2023-04-20", "EStime": "07:00 AM", "EEtime": "09:00 AM", "rec": ["Sunday"], "capacity": "23" },
-    { "name": "Cyber Security Research Session", "location": "GS 567", "type": "private", "ESdate": "2023-04-27", "EEdate": "2023-04-27", "EStime": "12:00 PM", "EEtime": "14:00 PM", "rec": [], "capacity": "345" }
+[{
+        "name": "Basketball Tournament",
+        "location": "Bearcat Stadium",
+        "type": "public",
+        "ESdate": "2023-04-15",
+        "EEdate": "2023-04-15",
+        "EStime": "07:00 AM",
+        "EEtime": "09:00 AM",
+        "rec": [
+            "Saturday"
+        ],
+        "capacity": "30"
+    },
+    {
+        "name": "Volleyball Tournament",
+        "location": "Recreation Stadium",
+        "type": "public",
+        "ESdate": "2023-04-22",
+        "EEdate": "2023-04-22",
+        "EStime": "12:00 PM",
+        "EEtime": "15:00 PM",
+        "rec": [
+            "Thursday",
+            "Wednesday",
+            "Saturday"
+        ],
+        "capacity": "145"
+    },
+    {
+        "name": "iOS Help Session",
+        "location": "CH 3500 ",
+        "type": "private",
+        "ESdate": "2023-04-20",
+        "EEdate": "2023-04-20",
+        "EStime": "07:00 AM",
+        "EEtime": "09:00 AM",
+        "rec": [
+            "Sunday"
+        ],
+        "capacity": "25"
+    },
+    {
+        "name": "Cyber Security Research Session",
+        "location": "GS 567",
+        "type": "private",
+        "ESdate": "2023-04-27",
+        "EEdate": "2023-04-27",
+        "EStime": "12:00 PM",
+        "EEtime": "14:00 PM",
+        "rec": [],
+        "capacity": "150"
+    }
 ]

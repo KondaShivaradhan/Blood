@@ -68,23 +68,23 @@ https://cdn.jsdelivr.net/npm/evo-calendar@1.1.3/evo-calendar/css/evo-calendar.mi
                         type: "Event",
                         everyYear: false,
                         description: "7am-9am",
-                        badge: "fatty",
+                        badge: "Capacity 40",
                     }, {
                         id: '09ppkggTs',
-                        name: "Cyber Security Research Session",
+                        name: "Cyber Security Research",
                         date: "April/27/2023",
                         type: "Event",
                         everyYear: false,
                         description: "12pm-2pm",
-                        badge: "fatty",
+                        badge: "Capacity 100",
                     }, {
                         id: '09mjkggTs',
-                        name: "Business Analytics Project Meeting",
+                        name: "Business Analytics Meeting",
                         date: "April/30/2023",
                         type: "Event",
                         everyYear: false,
                         description: "5pm-8pm",
-                        badge: "fatty",
+                        badge: "Capacity 12",
                     }]
                     //                 {
 
@@ -184,7 +184,7 @@ https://cdn.jsdelivr.net/npm/evo-calendar@1.1.3/evo-calendar/css/evo-calendar.mi
         <!-- tiles -->
         <div class="container">
             <div id="mar">
-                <marquee behavior="alternate" direction="">Today's Event : FootBall Match ( 7AM-9AM ) : VolleyBall Match (10AM-12PM) : Basketball Match (3PM-5PM) </marquee>
+                <marquee behavior="alternate" direction="">Today's Event : iOS Help Session ( 7AM-9AM ) : Cyber Security Workshop (10AM-12PM) : Project Management Meeting (3PM-5PM) </marquee>
                 <div id="Cicon">
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                 </div>
@@ -193,37 +193,38 @@ https://cdn.jsdelivr.net/npm/evo-calendar@1.1.3/evo-calendar/css/evo-calendar.mi
             <div id="calendar"></div>
             <div id="tiles">
                 <div>Total events 2023
-                    <p class="hyper">225</p>
+                    <p class="hyper">170</p>
                 </div>
                 <div>
                     Total Events in April
-                    <p class="hyper">25</p>
+                    <p class="hyper">15</p>
                 </div>
                 <div>
-                    upcoming Private events in April
-                    <p class="hyper">175</p>
+                    upcoming Private events
+                    <p class="hyper">155</p>
                 </div>
             </div>
             <!-- report -->
             <div id="reportBar">
                 <select name="Depart" id="">
+                <option value="">All</option>
                 <option value="">ACS</option>
                 <option value="">IS</option>
             </select>
                 <select name="Event" id="">
                 <option value="">iOS Help Session</option>
-                <option value="">Cyber Security Research Session</option>
+                <option value="">Cyber Security Workshop</option>
                 <option value="">Business Analytics Project Meeting</option>
             </select>
                 <select name="SelectYear" id="">
-                <option value="">2022</option>
                 <option value="">2023</option>
                 <option value="">2024</option>
+                
             </select>
                 <select name="SelectMonth" id="">
-                <option value="">Feb</option>
-                <option value="">March</option>
                 <option value="">April</option>
+                <option value="">March</option>
+                <option value="">Feb</option>
             </select>
                 <button id="reportB">Search</button>
             </div>
@@ -243,20 +244,20 @@ https://cdn.jsdelivr.net/npm/evo-calendar@1.1.3/evo-calendar/css/evo-calendar.mi
                             <tr>
                                 <td>iOS Help Session</td>
                                 <td>7AM-9AM</td>
-                                <td>April 20</td>
-                                <td>23</td>
+                                <td>April 3</td>
+                                <td>72</td>
                             </tr>
                             <tr>
                                 <td>Cyber Security Research Session</td>
                                 <td>12PM-2PM</td>
-                                <td>April 27</td>
-                                <td>345</td>
+                                <td>April 7</td>
+                                <td>57</td>
                             </tr>
                             <tr>
                                 <td>Business Analytics Project Meeting</td>
                                 <td>5PM-8PM</td>
-                                <td>April 30</td>
-                                <td>234</td>
+                                <td>April 16</td>
+                                <td>78</td>
                             </tr>
 
                         </tbody>
@@ -264,16 +265,16 @@ https://cdn.jsdelivr.net/npm/evo-calendar@1.1.3/evo-calendar/css/evo-calendar.mi
                 </div>
                 <div id="cards" class="col-md-4">
                     <div>
-                        Completed Events in March Events
-                        <p class="hyper">45</p>
+                        Completed Events in March
+                        <p class="hyper">20</p>
                     </div>
                     <div>
-                        Completed Events in March Events
-                        <p class="hyper">45</p>
+                        Cancelled Events in March
+                        <p class="hyper">5</p>
                     </div>
                     <div>
-                        Completed Events in March Events
-                        <p class="hyper">45</p>
+                        Upcoming Events in May
+                        <p class="hyper">15</p>
                     </div>
                 </div>
             </div>
@@ -283,14 +284,14 @@ https://cdn.jsdelivr.net/npm/evo-calendar@1.1.3/evo-calendar/css/evo-calendar.mi
                     <div id="Gbar">
                         <h4 style="color: white;">Event Statistics for Private Events</h4>
                         <select name="SelectYear" id="">
-                <option value="">2022</option>
                 <option value="">2023</option>
-                <option value="">2024</option>
+                <option value="">2022</option>
+                
                     </select>
                         <select name="SelectMonth" id="">
-                <option value="">Feb</option>
-                <option value="">March</option>
                 <option value="">April</option>
+                <option value="">March</option>
+                <option value="">Feb</option>
                     </select>
                         <button id="gbtn">Generate Report</button>
                     </div>

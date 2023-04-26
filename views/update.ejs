@@ -24,12 +24,24 @@
             <input name="location" type="text" value="<%= uevent.location %>" required>
             <label for=" ">Event Type</label>
             <input name="type" type="text " value="<%= uevent.type %>" required>
-            <label for=" ">Event Date</label>
-            <input name="Date" data-date="" data-date-format="DD MMMM YYYY" value="<%= uevent.date %>" required>
-            <label for=" ">Event from</label>
+            <label for=" ">Swipe Type</label>
+            <input name="swipetype" type="text " value="<%= uevent.swipetype %>" required>
+            <label for=" ">Event Start Date</label>
+            <input name="sdate" data-date="" data-date-format="DD MMMM YYYY" value="<%= uevent.sdate %>" required>
+            <label for=" ">Event End Date</label>
+            <input name="edate" data-date="" data-date-format="DD MMMM YYYY" value="<%= uevent.edate %>" required>
+            <label for=" ">Event Start Time</label>
             <input name="stime" type="time" value="<%= uevent.stime %>" required>
-            <label for=" ">Event to</label>
+
+            <label for="">Start Buffer</label>
+            <input name="sbuffer" type="text" value="<%= uevent.sbuffer %>" required>
+
+            <label for=" ">Event End Time</label>
             <input name="etime" type="time" value="<%= uevent.etime %>" required>
+
+            <label for="">End buffer</label>
+            <input name="ebuffer" type="text" value="<%= uevent.ebuffer %>" required>
+
             <label for=" ">Event Capacity</label>
             <input name="capacity " type="number " value="<%= uevent.capacity %>" required>
             <input type="submit " value="Submit ">
