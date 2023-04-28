@@ -78,6 +78,23 @@
             document.getElementById('result').innerHTML = days
         }
 
+        function checkDate() {
+            var getD = document.getElementById('fdate1').value
+            var getD2 = document.getElementById('fdate2').value
+            console.log(getD);
+            // 2023Y-04M-23D
+            var darra = getD.split('-')
+            if (darra[1] == '12' && darra[2] == '25') {
+                alert('Cannot create Event on Holiday')
+                document.getElementById('fdate1').value = ''
+            }
+            darra = getD2.split('-')
+            if (darra[1] == '12' && darra[2] == '25') {
+                alert('Cannot create Event on Holiday')
+                document.getElementById('fdate2').value = ''
+            }
+        }
+
         function Submit() {
             var form = document.getElementById('form')
             let out = {
@@ -169,7 +186,7 @@
                 <option value="public">Public</option>
                 </select>
                 <label for="">Invitation for Private</label>
-                <input id="pp" type="text" name="" value="s5495729,s5439579,s5494742,s5469579,s54967579,s589472,s5492579,s5495679,s5493472,s5495729,s5439579,s5494742,s5469579,s54967579,s589472,s547892579,s514595679,s455493472">
+                <input id="pp" type="text" name="" value="">
                 <button type="button" onclick="getP()">Add</button>
                 <div id="sids">
 
@@ -183,9 +200,9 @@
                     </select>
                 <div>
                     <label for="">Event Start Date</label>
-                    <input name="ESdate" id="fdate" type="date" data-date="" data-date-format="DD MMMM YYYY" required>
+                    <input name="ESdate" id="fdate1" onchange="checkDate()" type="date" data-date="" data-date-format="DD MMMM YYYY" required>
                     <label for="">Event End Date</label>
-                    <input name="EEdate" id="fdate" type="date" data-date="" data-date-format="DD MMMM YYYY" required>
+                    <input name="EEdate" id="fdate2" onchange="checkDate()" type="date" data-date="" data-date-format="DD MMMM YYYY" required>
                 </div>
                 <div>
                     <label for="">Event Start Time</label>

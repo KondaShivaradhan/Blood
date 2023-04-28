@@ -26,21 +26,34 @@
                 <li>
                     <a href="/gen">Generate Report</a>
                 </li>
+
                 <li>
                     <form action="/search" method="get">
-                        <input type="text" style="height:30px;width: 100px;" placeholder="Search Event">
+                        <input type="text" style="height:30px;" placeholder="Search Event">
                         <button type="button" style="padding-left: 2px;padding-right: 2px;">Search <i class="fa fa-search" aria-hidden="true"></i> </button>
                     </form>
                 </li>
-                <link rel=" stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
                 <li>
+                    <div class="dropdown">
+                        <button type="button" style="border: none;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="/public/gearGreen.png " height="30px" width="30px" alt="settings ">
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/settings">Notifications</a>
+                            <a class="dropdown-item" href="/holidays">Add Holidays</a>
+                            <a class="dropdown-item" href="/">Logout</a>
+                        </div>
+                    </div>
+                </li>
+                <link rel=" stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
+                <!-- <li>
                     <a href="/settings ">
                         <img src="/public/gearGreen.png " height="30px " width="30px" alt="settings ">
                     </a>
                 </li>
                 <li>
-                    <a href="/ "><button type="button" id="logout" style="background-color: rgb(58, 92, 7);color: white;padding: 3px;"> Logout <i class="fa fa-power-off " aria-hidden="true "></i> </button></a>
-                </li>
+                    <a href="/"><button type="button" id="logout" style="background-color: rgb(58, 92, 7);color: white;padding: 3px;"> Logout <i class="fa fa-power-off " aria-hidden="true "></i> </button></a>
+                </li> -->
             </ul>
         </div>
     </div>

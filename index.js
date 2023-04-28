@@ -66,6 +66,10 @@ app.get('/gen', function(req, res) {
     const array = data
     res.render("gen", { array })
 })
+app.get('/holidays', function(req, res) {
+    const array = data
+    res.render("holidays", { array })
+})
 app.get('/settings', function(req, res) {
     const array = data
     res.render("settings")

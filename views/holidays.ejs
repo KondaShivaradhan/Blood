@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <%- include('./Components/links') %>
+</head>
+<style>
+    .container>div {
+        width: 800px;
+    }
+    
+    #holi {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    ul {
+        text-decoration: none;
+    }
+    
+    li {
+        margin: 10px;
+    }
+</style>
+<script>
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    var holidays = ["Chritsmas - December 25", "new year - January 1"]
+
+    function load() {
+        var u = document.getElementById('ul')
+        u.innerHTML = ''
+        var index = 0
+        holidays.forEach(element => {
+            var li = document.createElement('li')
+            li.id = `${index}`
+            li.innerHTML = `<div id="holi">
+                ${element}
+                    <br>
+                    
+                    <button class="btn btn-danger p-1.5" onclick="del(${index})" > remove </button></div>`
+            document.getElementById('ul').appendChild(li)
+            index++
+        });
+    }
+
+    function checkDate() {
+        var getN = document.getElementById('hname').value
+        var getD = document.getElementById('fdate').value
+        console.log(getD);
+        // 2023Y-04M-23D
+        var darra = getD.split('-')
+        if (getN == "" || getD == "") {
+            alert('please enter valid details')
+        } else {
+            if (darra[1] == '05' && darra[2] == '07') {
+                if (confirm('Cannot Add this date as Holiday because an Event already exists\n Do you want to delete the existing event?')) {
+                    alert("Event deleted! and holiday created successfully")
+                    const d = new Date(getD);
+                    let text = d.toString();
+                    console.log(d);
+                    holidays.push(`${getN} - ${d.getFullYear()} ${monthNames[d.getMonth()]} ${d.getDate()+1}`)
+                    load()
+                } else {
+                    alert("No change in the events")
+                    document.getElementById('fdate').value = ''
+                }
+            } else {
+                alert("Holiday created!")
+                var li = document.createElement('li')
+                const d = new Date(getD);
+                let text = d.toString();
+                console.log(d);
+                holidays.push(`${getN} - ${d.getFullYear()} ${monthNames[d.getMonth()]} ${d.getDate()+1}`)
+                load()
+
+            }
+        }
+    }
+
+    function del(params) {
+
+        var temp = []
+        var index = 0
+        holidays.forEach(element => {
+            if (params != index) {
+                temp.push(element)
+            }
+        });
+        holidays = temp
+        element = document.getElementById(`${params}`);
+        element.parentNode.removeChild(element);
+    }
+</script>
+
+<body onload="load()">
+    <%- include('./Components/navbar') %>
+        <div>
+            <form action="">
+                <label for="">Enter Name:</label>
+                <input type="text" name="" id="hname" required>
+                <label for="">Enter Holiday Date:</label>
+                <input type="date" name="" id="fdate" required>
+                <button type="button" onclick="checkDate()">Add Holiday</button>
+            </form>
+        </div>
+        <div>
+            <h5>List of existing Holidays</h5>
+            <ul id="ul">
+                <!-- <li>
+                    Christmas - Dec 25th
+                    <br>
+                    <button> <i class="fa fa-times" onclick="del(1)" aria-hidden="true"></i> </button>
+                </li>
+                <li>
+                    New Year - Dec 1st
+                    <button> <i class="fa fa-times"  onclick="del(2)" aria-hidden="true"></i> </button>
+                </li> -->
+            </ul>
+        </div>
+
+</body>
+
+</html>
