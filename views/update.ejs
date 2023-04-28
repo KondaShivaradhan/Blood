@@ -1,51 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- https://cf84-47-215-23-128.ngrok-free.app/ -->
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Update Event</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
     <link rel="stylesheet" href="../../public/Css/admin.css">
+    <link rel="stylesheet" href="/public/Css/create.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>
+        $(document).ready(function() {
+            $("#fdate").on("change", function() {
+                    this.setAttribute(
+                        "data-date",
+                        moment(this.value, "YYYY-MM-DD")
+                        .format(this.getAttribute("data-date-format"))
+                    )
+                }).trigger("change")
+                // $("#pp").on("change", function() {
+                //     // alert("Handler for `change` called.");
+                //     console.log("camer here");
+                // });
+        })
+        days = []
 
+        function AddDay(day) {
+            console.log(day);
+            if (day == "Everyday") {
+                days = []
+                days.push("Monday")
+                days.push("Tuesday")
+                days.push("Wednesday")
+                days.push("Thursday")
+                days.push("friday")
+                days.push("Saturday")
+                days.push("Sunday")
+            } else if (days.includes(day)) {
+
+            } else {
+                days.push(day);
+            }
+            document.getElementById('result').innerHTML = ""
+            print()
+        }
+
+        function print() {
+            document.getElementById('result').innerHTML = ""
+            days.forEach(element => {
+                document.getElementById('result').innerHTML += `<div class="day" onclick="del('${element}')" >${element}</div>`
+            });
+        }
+
+        function del(params) {
+            console.log(params);
+            var temp = []
+            days.forEach(day => {
+                if (day == params) {
+
+                } else {
+                    temp.push(day)
+                }
+            })
+            days = temp
+            print()
+        }
+
+        function reset() {
+            console.log("rest Cliked");
+            days = []
+            document.getElementById('result').innerHTML = days
+        }
+
+        function Submit() {
+            var form = document.getElementById('form')
+            let out = {
+                name: document.getElementsByName("name")[0].value,
+                location: document.getElementsByName("location")[0].value,
+                type: document.getElementsByName("type")[0].value,
+                ESdate: document.getElementsByName("ESdate")[0].value,
+                EEdate: document.getElementsByName("EEdate")[0].value,
+                EStime: document.getElementsByName("stime")[0].value,
+                EEtime: document.getElementsByName("eetime")[0].value,
+                rec: days,
+                capacity: document.getElementsByName("capacity")[0].value
+            }
+            form.name.value = JSON.stringify(out)
+                // form.type.value = document.getElementsByName("type")[0].value
+                //     form.ESdate.value = document.getElementsByName("ESdate")[0].value
+                //     form.EEdate.value = document.getElementsByName("EEdate")[0].value
+                //     form.EStime.value = document.getElementsByName("stime")[0].value
+                //     form.EEtime.value = document.getElementsByName("eetime")[0].value
+                //     form.rec.value = days
+                //     form.capacity.value = document.getElementsByName("capacity")[0].value
+            form.submit()
+        }
+
+        function makeUnique(array) {
+            return Array.from(new Set(array));
+        }
+        var uniqueArray = []
+
+        function getP() {
+            var i = document.getElementById('pp')
+            console.log(i.value);
+            var arr = i.value.split(',')
+            uniqueArray = makeUnique(arr);
+            var d = ''
+            uniqueArray.forEach(id => {
+                // var dump = document.createElement('div')
+                // dump.id = id
+                // console.log(dump);
+
+                d = d + `<div class='ids' id="${id}" >${id}
+                    <img onclick="del(${id})" src='../public/into.png' height="15px" width="15px">
+                    </div>`
+            })
+            document.getElementById('sids').innerHTML = d
+
+            console.log("came here");
+
+        }
+
+        function del(param) {
+            console.log(param);
+            var ids = param.id
+            console.log(param);
+            var temp = []
+            var d = ''
+            console.log(uniqueArray);
+            uniqueArray.forEach(id => {
+                if (id != param.id) {
+                    temp.push(id)
+
+                    d = d + `<div class='ids' id="${id}" >${id}
+                    <img onclick="del(${id})" src='../public/into.png' height="15px" width="15px">
+                    </div>`
+                } else {
+                    console.log(id);
+                }
+            })
+            console.log(temp);
+            uniqueArray = temp
+            document.getElementById('sids').innerHTML = d
+        }
+    </script>
 </head>
 
 <body>
 
     <%- include('./Components/navbar') %>
-        <form action="/create" method="post">
-            <label for="">Event Name</label>
-            <input name="name" type="text" value="<%= uevent.name %>" required>
-            <label for="">Event Location</label>
-            <input name="location" type="text" value="<%= uevent.location %>" required>
-            <label for=" ">Event Type</label>
-            <input name="type" type="text " value="<%= uevent.type %>" required>
-            <label for=" ">Swipe Type</label>
-            <input name="swipetype" type="text " value="<%= uevent.swipetype %>" required>
-            <label for=" ">Event Start Date</label>
-            <input name="sdate" data-date="" data-date-format="DD MMMM YYYY" value="<%= uevent.sdate %>" required>
-            <label for=" ">Event End Date</label>
-            <input name="edate" data-date="" data-date-format="DD MMMM YYYY" value="<%= uevent.edate %>" required>
-            <label for=" ">Event Start Time</label>
-            <input name="stime" type="time" value="<%= uevent.stime %>" required>
+        <div id="main" style='background: linear-gradient(rgba(0, 0, 0, 0.252), rgba(0, 0, 0, 0.234)), url("https://cdn.internationalstudent.com/images/esldirectory/Northwest_Missouri_State/sept.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;'>
 
-            <label for="">Start Buffer</label>
-            <input name="sbuffer" type="text" value="<%= uevent.sbuffer %>" required>
+            <form id="form" action="/create" method="post">
+                <h5 style="text-decoration: underline;">Updating Event</h5>
+                <label for="">Event Name</label>
+                <input id="name" name="name" type="text" value="Cyber Security Research Session" required>
+                <label for="">Event Location</label>
+                <input id="loc" name="location" type="text" value="GS 3600" required>
+                <label for="">Event Type</label>
 
-            <label for=" ">Event End Time</label>
-            <input name="etime" type="time" value="<%= uevent.etime %>" required>
+                <select name="type" required>
+                <option value="private">Private</option>
+                <option value="public">Public</option>
+                </select>
+                <label for="">Invitation for Private</label>
+                <input id="pp" type="text" name="">
+                <button type="button" onclick="getP()">Add</button>
+                <div id="sids">
 
-            <label for="">End buffer</label>
-            <input name="ebuffer" type="text" value="<%= uevent.ebuffer %>" required>
-
-            <label for=" ">Event Capacity</label>
-            <input name="capacity " type="number " value="<%= uevent.capacity %>" required>
-            <input type="submit " value="Submit ">
-        </form>
+                </div>
+                <label for="">Swipe Type</label>
+                <select name="type" required>
+                    <option value="In">In</option>
+                    <option value="In/Out">In/Out</option>
+                    <option value="Multiple">Multiple</option>
+                    <option value="Multiple">None</option>
+                    </select>
+                <div>
+                    <label for="">Event Start Date</label>
+                    <input name="ESdate" id="fdate" type="date" data-date="" data-date-format="DD MMMM YYYY" required>
+                    <label for="">Event End Date</label>
+                    <input name="EEdate" id="fdate" type="date" data-date="" data-date-format="DD MMMM YYYY" required>
+                </div>
+                <div>
+                    <label for="">Event Start Time</label>
+                    <input name="stime" type="time" required>
+                    <label>Start Buffer</label>
+                    <input type="number">
+                </div>
+                <div>
+                    <label for="">Event End time</label>
+                    <input name="eetime" type="time" required>
+                    <label>End Buffer</label>
+                    <input type="number">
+                </div>
+                <label for="">Recurring Days</label>
+                <div id="rec">
+                    <div onclick="AddDay('Monday')">Monday</div>
+                    <div onclick="AddDay('Tuesday')">Tuesday</div>
+                    <div onclick="AddDay('Wednesday')">Wednesday</div>
+                    <div onclick="AddDay('Thursday')">Thursday</div>
+                    <div onclick="AddDay('Friday')">Friday</div>
+                    <div onclick="AddDay('Saturday')">Saturday</div>
+                    <div onclick="AddDay('Sunday')">Sunday</div>
+                    <div onclick="AddDay('Everyday')">Everyday</div>
+                    <div class="btn btn-success" onclick="reset()">Reset</div>
+                </div>
+                <div id="result">
+                </div>
+                <label for="">Event Capacity</label>
+                <input name="capacity" type="number" required>
+                <input type="button" class="btn btn-success" style="margin: 20px;" onclick="Submit()" value="Submit">
+            </form>
+        </div>
 </body>
+<style>
+    .day {
+        padding: 5px;
+        margin: 10px;
+        width: fit-content;
+        background-color: aquamarine;
+    }
+</style>
 
 </html>

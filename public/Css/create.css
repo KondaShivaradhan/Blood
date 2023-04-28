@@ -53,6 +53,12 @@
     color: white !important;
 }
 
+#rec {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 #rec,
 #result,
 form>div {
